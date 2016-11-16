@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -134,7 +136,13 @@ public class book_conf_room extends Fragment {
                     int buildingID = buildingList.stream().filter(b -> b.GetBuildingName().equals(spinnerBuilding.getSelectedItem())).findFirst().get().GetBuildingID();
                     Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetConfBooks(buildingID, startDateTime,endDateTime));
                     if(c.getCount()>0){
-
+                        conf_search_results results = new conf_search_results();
+                        results.SetUserID(UserID);
+                        results.SetCursor(c);
+                        FragmentManager fragmentManager = getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                        //fragmentTransaction.replace(R.id.fragmentholder, results);
+                        fragmentTransaction.commit();
                     }
                 }
             }
