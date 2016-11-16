@@ -1,0 +1,163 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sayan.mis571.fragments.book_class">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Building Name:"
+                android:textColor="@color/abc_primary_text_disable_only_material_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="25dp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:id="@+id/textView4"
+                android:textSize="25dp" />
+
+            <TextView
+                android:text="Capacity:"
+                android:textColor="@color/abc_primary_text_disable_only_material_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:textStyle="bold"
+                android:id="@+id/textView5"
+                android:layout_marginLeft="25dp"
+                android:textSize="25dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/spinner2"
+                android:layout_below="@+id/textView4"
+                android:layout_alignLeft="@+id/textView4"
+                android:layout_alignStart="@+id/textView4"
+                android:layout_marginTop="10dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/spinner4"
+                android:layout_below="@+id/textView2"
+                android:layout_alignLeft="@+id/textView2"
+                android:layout_alignStart="@+id/textView2"
+                android:layout_marginTop="10dp" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:id="@+id/spinner3"
+                android:layout_below="@+id/textView5"
+                android:layout_alignStart="@+id/textView4"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/textView4" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textIsSelectable="true"
+                android:hint="Enter Start Time"
+                android:id="@+id/starttime"
+                android:layout_below="@+id/textView3"
+                android:layout_alignStart="@+id/textView3"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/textView3" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Enter End Time"
+                android:id="@+id/endtime"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/textView6"
+                android:layout_alignStart="@+id/textView6"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/textView6" />
+
+            <TextView
+                android:text="Term:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="180dp"
+                android:id="@+id/textView2"
+                android:textColor="@color/abc_primary_text_disable_only_material_light"
+                android:layout_marginLeft="25dp"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:text="Start Time:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_marginTop="260dp"
+                android:layout_marginLeft="25dp"
+                android:textColor="@color/abc_primary_text_disable_only_material_light"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:text="End Time:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView6"
+                android:textColor="@color/abc_primary_text_disable_only_material_light"
+                android:layout_marginTop="360dp"
+                android:layout_marginLeft="25dp"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:text="Projector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_below="@id/endtime"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:id="@+id/checkBox" />
+
+            <CheckBox
+                android:text="Computer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/checkBox"
+                android:textSize="20dp"
+                android:layout_marginLeft="165dp"
+                android:id="@+id/checkBox2" />
+
+            <CheckBox
+                android:text="Mic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/checkBox2"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="40dp"
+                android:textSize="20dp"
+                android:id="@+id/checkBox3" />
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:text="Search"
+        android:layout_width="125dp"
+        android:layout_height="55dp"
+        android:textSize="20dp"
+        android:layout_marginTop="530dp"
+        android:layout_marginLeft="195dp"
+        android:id="@+id/button3" />
+
+</RelativeLayout>

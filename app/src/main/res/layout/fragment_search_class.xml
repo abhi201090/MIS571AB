@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sayan.mis571.fragments.search_class">
+
+
+    <TextView
+        android:text="Course Name:"
+        android:layout_width="wrap_content"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="25dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView4"
+        android:textSize="25dp" />
+
+    <TextView
+        android:text="Professor Name:"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:textStyle="bold"
+        android:id="@+id/textView5"
+        android:layout_marginLeft="25dp"
+        android:textSize="25dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/spinnerCourse"
+        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_marginTop="10dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/spinnerProfessor"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@+id/textView4" />
+
+    <Button
+        android:text="Search"
+        android:layout_width="105dp"
+        android:layout_height="55dp"
+        android:textSize="17dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/button3" />
+
+    <TextView
+        android:text="Course Name: abc"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="35dp"
+        android:id="@+id/textView7" />
+
+    <TextView
+        android:text="Professor: Prof. abc"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView8" />
+
+    <TextView
+        android:text="Location: abc"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="35dp"
+        android:id="@+id/textView9" />
+
+    <TextView
+        android:text="Timings: a to b"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="35dp"
+        android:id="@+id/textView10" />
+
+</RelativeLayout>

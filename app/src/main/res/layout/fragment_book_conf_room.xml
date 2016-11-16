@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sayan.mis571.fragments.book_conf_room">
+
+    <TextView
+        android:text="Building Name:"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="25dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView4"
+        android:textSize="25dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/spinnerBuilding"
+        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter Date"
+        android:id="@+id/dateselect"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@+id/textView3" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter End Time"
+        android:id="@+id/endtime2"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@+id/textView5" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter Start Time"
+        android:id="@+id/starttime2"
+        android:layout_below="@+id/textView6"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@+id/textView6" />
+
+    <Button
+        android:text="Search"
+        android:layout_width="125dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="150dp"
+        android:id="@+id/btnSearchConf" />
+
+    <TextView
+        android:text="Date:"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="25dp"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:text="End Time:"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:layout_marginTop="330dp"
+        android:layout_marginLeft="25dp"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:text="Start Time:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="25dp"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
