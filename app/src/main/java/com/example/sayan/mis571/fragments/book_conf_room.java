@@ -135,13 +135,14 @@ public class book_conf_room extends Fragment {
                 if(startDateTime.after(current) && endDateTime.after(startDateTime)){
                     int buildingID = buildingList.stream().filter(b -> b.GetBuildingName().equals(spinnerBuilding.getSelectedItem())).findFirst().get().GetBuildingID();
                     Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetConfBooks(buildingID, startDateTime,endDateTime));
+                    int count = c.getCount();
                     if(c.getCount()>0){
                         conf_search_results results = new conf_search_results();
                         results.SetUserID(UserID);
                         results.SetCursor(c);
-                        FragmentManager fragmentManager = getChildFragmentManager();
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                        //fragmentTransaction.replace(R.id.fragmentholder, results);
+                        fragmentTransaction.replace(R.id.fragmentholder, results);
                         fragmentTransaction.commit();
                     }
                 }

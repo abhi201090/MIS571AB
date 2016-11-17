@@ -53,6 +53,7 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
 
         loadSelection(0);
 
+
     }
 
     private void loadSelection(int i){
