@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.sayan.mis571.constant.SQLCommand;
 import com.example.sayan.mis571.R;
@@ -20,6 +21,8 @@ import com.example.sayan.mis571.util.DBOperator;
 import com.example.sayan.mis571.util.Instructors;
 import com.example.sayan.mis571.util.Pair;
 import com.example.sayan.mis571.util.Course;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -79,7 +82,37 @@ public class search_class extends Fragment {
 
             }
         });
+        spinnerProfessor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedInstructor = spinnerProfessor.getSelectedItem().toString();
+                if(!instList.isEmpty() && selectedInstructor != "Select an Instructor"){
+                    String selectedValueCourse = studentCourse.getSelectedItem().toString();
+                    Course course = courseList.stream().filter(c -> c.GetCourseCode().equals(selectedValueCourse)).findFirst().get();
+                    Instructors inst = instList.stream().filter(i->i.GetName().equals(selectedInstructor)).findFirst().get();
+                    Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.GetClassDetails(course.GetCourseID(),inst.GetID()));
+                    int count = cursor.getCount();
+                    while(cursor.moveToNext()) {
+                        TextView courseView = (TextView)rootView.findViewById(R.id.txtCourse);
+                        TextView proffView = (TextView)rootView.findViewById(R.id.txtProff);
+                        TextView locView = (TextView)rootView.findViewById(R.id.txtLoc);
+                        TextView timeView = (TextView)rootView.findViewById(R.id.txtTime);
+                        courseView.setText("Course Name: "+selectedValueCourse);
+                        proffView.setText("Professor: "+selectedInstructor);
+                        locView.setText("Location: "+cursor.getString(0));
+                        timeView.setText("Timings: "+cursor.getString(1));
+                        break;
+                    }
+                }
 
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         return rootView;
     }
 

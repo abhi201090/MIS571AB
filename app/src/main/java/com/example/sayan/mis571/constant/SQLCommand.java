@@ -15,9 +15,10 @@ public abstract class SQLCommand
     }
 
     public static String GetStudentCourses(int UserID){
-        String query = "SELECT T2.ID, T2.CourseCode||'-'||T2.Title FROM StudentCourse AS T1 " +
-                "JOIN Course AS T2 ON T1.CourseID = T2.ID " +
-                "WHERE StudentID = " + UserID;
+        String query = "SELECT T2.ID, T2.CourseCode||'-'||T2.Title FROM StudentCourse AS T1 \n" +
+                "JOIN Course AS T2 ON T1.CourseID = T2.ID\n" +
+                "JOIN Students AS T3 ON T3.ID = T1.StudentID\n" +
+                "WHERE T3.UserID = "+UserID;
         return  query;
     }
 
@@ -47,5 +48,44 @@ public abstract class SQLCommand
         return query;
     }
 
+    public static String GetClassroomCapacities(int buildingID){
+        String query = "select distinct capacity from Classrooms where building = " + buildingID;
+        return query;
+    }
 
+    public static String GetProfCourses(int userID, String term){
+        String query = "select T2.ID, T2.CourseCode || '-' || T2.Title from InstructorCourse as T1\n" +
+                "join Course T2 on T1.CourseID = T2.ID\n" +
+                "join Instructors T3 on T3.ID = T1.InstructorID\n" +
+                "where T1.Semester = '"+term+"' and T3.UserID = " +userID;
+        return query;
+    }
+
+    public static String GetClassBookings(String start_time, String end_time,String day,String term, int year,int building,int capacity,int hasComp, int hasMic, int hasProj){
+        String query = "SELECT ID as _id, Name,Floor FROM Classrooms WHERE ID NOT IN \n" +
+                "(SELECT Distinct T1.ClassID FROM ClassBook AS T1\n" +
+                "JOIN Classrooms AS T2 ON T1.ClassID = T2.ID\n" +
+                "JOIN Buildings As T3 ON T3.ID = T2.Building\n" +
+                "WHERE (Time(T1.to_Time) >= Time('"+start_time+"') OR Time(T1.From_Time)<=Time('"+end_time+"')) AND T2.Building = "+building+"  AND T1.Day = '"+day+"' AND T1.Semester = '"+term+"' AND T1.Year = "+year+") \n" +
+                "AND Capacity = " + capacity +
+                " AND HasComputer = " + hasComp +
+                " AND HasMic = " + hasMic +
+                " AND HasProjector = " + hasProj +
+                " AND Building = " + building;
+        return query;
+    }
+
+    public static String GetInsertClassBook(int UserID,int ClassID,String term, int year, int courseID,String day, String start_time,String end_time){
+        String query = "INSERT INTO ClassBook (UserID,ClassID,Semester,Year,CourseID,Status,Day,From_Time,To_Time) VALUES("+UserID+","+ClassID+",'"+term+"',"+year+","+courseID+",'Confirmed','"+day+"',Time('"+start_time+"'),Time('"+end_time+"'))";
+        return query;
+    }
+
+    public static String GetClassDetails(int courseID,int instID){
+        String query = "SELECT 'Floor: '||T3.Floor ||' Building: '||T4.Name, T1.From_Time||' to '||T1.To_Time FROM ClassBook T1\n" +
+                "JOIN Instructors T2 ON T1.UserID=T2.UserID\n" +
+                "JOIN Classrooms T3 ON T1.ClassID = T3.ID\n" +
+                "JOIN Buildings T4 ON T3.Building = T4.ID\n" +
+                "WHERE T1.CourseID = "+courseID+" AND T2.ID = "+instID;
+        return query;
+    }
 }

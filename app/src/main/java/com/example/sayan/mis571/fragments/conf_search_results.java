@@ -94,7 +94,7 @@ public class conf_search_results  extends Fragment{
             catch (Exception e){
 
             }
-            //Toast.makeText(getActivity().getApplicationContext(),"Student ID: " + stid + "\nStudent Name: " + stname+ "\nBook Title: " + lbtitle + "\nDue Date: "+ coduedate + "\nReturn State: " + coreturned+ "\nFine: $" + cofine, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(),"Conference Room Booked!", Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -66,6 +66,7 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
                 break;
             case 1:
                 book_class book_cls = new book_class();
+                book_cls.SetUserID(getIntent().getExtras().getInt("UserID"));
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, book_cls);
                 fragmentTransaction.commit();

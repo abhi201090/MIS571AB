@@ -9,6 +9,22 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="stFloorNo">Floor No</string>
     <string name="stConfName">Conference Room</string>
+    <string name="stClassRoom">Class Room</string>
+    <string-array name="Terms" >
+        <item>Select a Term</item>
+        <item>A</item>
+        <item>B</item>
+    </string-array>
+    <string-array name="Days" >
+        <item>Select a Day</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

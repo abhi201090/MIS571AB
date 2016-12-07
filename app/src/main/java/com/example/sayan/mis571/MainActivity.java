@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(i);
                             break;
                         case 3 :
-                            Intent intent = new Intent(MainActivity.this, Student_Home.class);
+                            Intent intent = new Intent(MainActivity.this, Prof_Home.class);
                             intent.putExtras(b);
                             startActivity(intent);
                             break;
