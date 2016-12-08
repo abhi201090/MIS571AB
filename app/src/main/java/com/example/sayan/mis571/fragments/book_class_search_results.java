@@ -1,5 +1,6 @@
 package com.example.sayan.mis571.fragments;
 
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.database.Cursor;
@@ -51,9 +52,29 @@ public class book_class_search_results extends Fragment {
             Cursor cursor = (Cursor) listView.getItemAtPosition(position);
             int classID = Integer.parseInt(cursor.getString(0));
             try {
-                Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetInsertClassBook(user_id,classID,term,year,course_id,day,start_time,end_time));
-
-                c = DBOperator.getInstance().execQuery(SQLCommand.GetClassBookings(start_time,end_time,day,term,year,buildingID,capacity,hascomp,hasMicro,hasProj));
+                //Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetInsertClassBook(user_id,classID,term,year,course_id,day,start_time,end_time));
+                /*ContentValues cv = new ContentValues();
+                cv.put("UserID",user_id);
+                cv.put("ClassID","");
+                cv.put("Semester","");
+                cv.put("Year","");
+                cv.put("CourseID","");
+                cv.put("Status","");
+                cv.put("Day","");
+                cv.put("From_Time","");
+                cv.put("To_Time","");*/
+                Object[] params = new Object[9];
+                params[0]=user_id;
+                params[1]=classID;
+                params[2]=term;
+                params[3]=year;
+                params[4]=course_id;
+                params[5]="Confirmed";
+                params[6]=day;
+                params[7]=start_time;
+                params[8]=end_time;
+                DBOperator.getInstance().execSQL(SQLCommand.GetInsertClassBook(),params);
+                Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetClassBookings(start_time,end_time,day,term,year,buildingID,capacity,hascomp,hasMicro,hasProj));
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                         getActivity().getApplicationContext(), R.layout.fragment_confroom_listview, c,
                         new String[] {"Floor", "Name"}, new int[] {

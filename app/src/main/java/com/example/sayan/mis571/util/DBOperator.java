@@ -5,12 +5,14 @@ package com.example.sayan.mis571.util;
  */
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.sayan.mis571.constant.DBConstant;
+import com.example.sayan.mis571.constant.SQLCommand;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -96,6 +98,12 @@ public Cursor execQuery(String sql,String[] selectionArgs) throws SQLException
 {
     return db.rawQuery(sql, selectionArgs);
 }
+    public long DbInsert(String table, String nullColumnHack, ContentValues content, int conflictAlgorithm) throws SQLException
+    {
+
+        return db.insertWithOnConflict(table,nullColumnHack,content,conflictAlgorithm);
+
+    }
     /**
      * execute query without arguments
      * @param sql

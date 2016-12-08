@@ -75,8 +75,17 @@ public abstract class SQLCommand
         return query;
     }
 
+
+    /*
     public static String GetInsertClassBook(int UserID,int ClassID,String term, int year, int courseID,String day, String start_time,String end_time){
-        String query = "INSERT INTO ClassBook (UserID,ClassID,Semester,Year,CourseID,Status,Day,From_Time,To_Time) VALUES("+UserID+","+ClassID+",'"+term+"',"+year+","+courseID+",'Confirmed','"+day+"',Time('"+start_time+"'),Time('"+end_time+"'))";
+        String query = "INSERT INTO ClassBook (UserID,ClassID,Semester,Year,CourseID,Status,Day,From_Time,To_Time) VALUES("+UserID+","+ClassID+",'"+term+"',"+year+","+courseID+",'Confirmed','"+day+"','"+start_time+"','"+end_time+"')";
+        //String query = "INSERT INTO ClassBook (UserID,ClassID,Semester,Year,CourseID,Status,Day,From_Time,To_Time) VALUES(?,?,?,?,?,?,?,?,?)";
+        return query;
+    }*/
+
+    public static String GetInsertClassBook(){
+        //String query = "INSERT INTO ClassBook (UserID,ClassID,Semester,Year,CourseID,Status,Day,From_Time,To_Time) VALUES("+UserID+","+ClassID+",'"+term+"',"+year+","+courseID+",'Confirmed','"+day+"',Time('"+start_time+"'),Time('"+end_time+"'))";
+        String query = "INSERT INTO ClassBook (UserID,ClassID,Semester,Year,CourseID,Status,Day,From_Time,To_Time) VALUES(?,?,?,?,?,?,?,?,?)";
         return query;
     }
 
