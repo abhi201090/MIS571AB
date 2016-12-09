@@ -33,18 +33,23 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof__home);
+        //
         drawerLayout= (DrawerLayout) findViewById(R.id.drawerholder);
         navList=(ListView)findViewById(R.id.navlist);
+
+        //ArrayList to store the values shown on the sidebar
         ArrayList<String> navArray= new ArrayList<String>();
         navArray.add("Home");
         navArray.add("Book Class Room");
         navArray.add("Book Conference Room");
         navArray.add("Account Details");
         navArray.add("Sign Out");
+
         navList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navArray);
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(this);
+
         actionBarDrawerToggle= new ActionBarDrawerToggle(this,drawerLayout,R.string.opendrawer,R.string.closedrawer);
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         ActionBar actionBar= getSupportActionBar();
