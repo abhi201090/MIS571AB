@@ -1,5 +1,6 @@
 package com.example.sayan.mis571;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -39,6 +40,7 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
         navArray.add("Search Class");
         navArray.add("Book Conference Room");
         navArray.add("Account Details");
+        navArray.add("Sign Out");
         navList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navArray);
         navList.setAdapter(adapter);
@@ -86,6 +88,11 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
                 fragmentTransaction.replace(R.id.fragmentholder, acc_det);
                 fragmentTransaction.commit();
                 break;
+            case 4:
+                //SignOut
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+
         }
 
     }
