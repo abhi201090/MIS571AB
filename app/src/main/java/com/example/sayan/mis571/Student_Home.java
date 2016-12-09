@@ -45,7 +45,7 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
         navList.setOnItemClickListener(this);
         actionBarDrawerToggle= new ActionBarDrawerToggle(this,drawerLayout,R.string.opendrawer,R.string.closedrawer);
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
-        ActionBar actionBar= getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 

@@ -8,63 +8,91 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bg"
     tools:context="com.example.sayan.mis571.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome To Class Search"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:textSize="32sp"
-        android:textColor="@color/abc_primary_text_disable_only_material_light"
-        android:textStyle="bold"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:id="@+id/EditTxtUsername"
         android:layout_gravity="center_horizontal"
+        android:backgroundTint="#F0F0F0"
         android:hint="UserName"
-        android:layout_marginTop="120dp"
+        android:background="@drawable/textedit"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:layout_marginRight="30dp"
+        android:textAlignment="center"
+        android:textColorLink="?android:attr/textColorPrimary"
+        android:fontFamily="monospace"
+        android:typeface="monospace"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:selectAllOnFocus="false"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:inputType="textPassword"
         android:layout_height="65dp"
         android:id="@+id/EditTxtPass"
+        android:backgroundTint="#F0F0F0"
         android:layout_gravity="center_horizontal"
-        android:hint="PassWord"
-        android:layout_marginTop="220dp"
+        android:hint="Password"
+        android:background="@drawable/textedit"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="84dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginTop="299dp"
-        android:id="@+id/button" />
-
-    <Button
-        android:text="Button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/button"
-        android:layout_toStartOf="@+id/button"
         android:layout_marginRight="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="299dp"
-        android:id="@+id/button2" />
+        android:textAlignment="center"
+        android:fontFamily="monospace"
+        android:typeface="monospace"
+        android:textSize="20sp"
+        android:layout_below="@+id/EditTxtUsername"
+        android:layout_marginTop="18dp" />
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:src="@drawable/btn"
+        android:background="@drawable/bg"
+        android:layout_marginRight="30dp"
+        android:id="@+id/button"
+        android:cropToPadding="false"
+        android:adjustViewBounds="false"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="136dp"
+        android:layout_below="@+id/EditTxtPass"
+        android:layout_alignStart="@+id/EditTxtPass"
+        android:contentDescription="button on the left"/>
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:src="@drawable/btn"
+        android:background="@drawable/bg"
+        android:layout_marginEnd="25dp"
+        android:id="@+id/button2"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignEnd="@+id/EditTxtPass"
+        android:contentDescription="button on the right"/>
+
+    <ImageView
+        android:layout_width="90dp"
+        android:src="@drawable/icon"
+        android:layout_above="@+id/EditTxtUsername"
+        android:layout_alignStart="@+id/EditTxtUsername"
+        android:layout_height="90dp"
+        android:contentDescription="the icon"/>
+
+    <ImageView
+        android:src="@drawable/roomchecker"
+        android:id="@+id/textView"
+        android:layout_marginTop="84dp"
+        android:layout_width="400dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/EditTxtUsername"
+        android:layout_height="110dp"
+        android:layout_gravity="bottom"
+        android:contentDescription="the title"/>
 
 </RelativeLayout>
