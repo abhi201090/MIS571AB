@@ -22,7 +22,8 @@ public abstract class SQLCommand
         return  query;
     }
     public static String GetStudInfo(int UserID){
-        String query = "SELECT FirstName, LastName, Department, Degree, Year FROM Students WHERE UserID = " + Integer.toString(UserID);
+        String query = "SELECT FirstName, LastName, Departments.Department, Degree, Year FROM Departments, Students WHERE " +
+                "Departments.ID = Students.Department AND UserID = " + Integer.toString(UserID);
         return query;
     }
 
