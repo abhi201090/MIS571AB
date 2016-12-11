@@ -80,16 +80,19 @@ public class MainActivity extends Activity {
                         break;
                     }
                 }
-                //startActivity(new Intent(MainActivity.this, Student_Home.class));
             }
         });
 
-//        btn2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, Prof_Home.class));
-//            }
-//        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dlgAlert.setMessage("Please Contact the WPI IT desk");
+                dlgAlert.setPositiveButton("OK", null);
+                dlgAlert.setCancelable(true);
+                dlgAlert.setIcon(R.drawable.icon);
+                dlgAlert.create().show();
+            }
+        });
     }
 }
 

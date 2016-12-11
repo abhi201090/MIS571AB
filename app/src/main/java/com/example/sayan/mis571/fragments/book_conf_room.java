@@ -43,8 +43,7 @@ public class book_conf_room extends Fragment {
         // Required empty public constructor
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_book_conf_room, container, false);
         spinnerBuilding = (Spinner)rootView.findViewById(R.id.spinnerBuilding);

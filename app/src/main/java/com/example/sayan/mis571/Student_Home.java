@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -28,17 +29,20 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
     private ListView navList;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
+    private AlertDialog.Builder SignOutAlert;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
-        drawerLayout= (DrawerLayout) findViewById(R.id.drawerholder);
-        navList=(ListView)findViewById(R.id.navlist);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerholder);
+        navList = (ListView)findViewById(R.id.navlist);
+        //initialize the ListView
         navList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         String[] navtitle = getResources().getStringArray(R.array.Stud_home_side);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navtitle);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,navtitle);
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(this);
         actionBarDrawerToggle= new ActionBarDrawerToggle(this,drawerLayout,R.string.opendrawer,R.string.closedrawer);
@@ -60,6 +64,7 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
         switch (i){
             case 0:
                 student_home_fragment st_home = new student_home_fragment();
+                st_home.SetUserID(getIntent().getExtras().getInt("UserID"));
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, st_home);
                 fragmentTransaction.commit();
@@ -107,7 +112,7 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if(id== android.R.id.home){
+        if(id == android.R.id.home){
             if(drawerLayout.isDrawerOpen(navList)){
                 drawerLayout.closeDrawer(navList);
             }else{

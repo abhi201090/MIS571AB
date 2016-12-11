@@ -34,7 +34,7 @@
     </string-array>
     <string-array name="Stud_home_side">
         <item>Home</item>
-        <item>Search Class</item>
+        <item>Search Class Room</item>
         <item>Book Conference Room</item>
         <item>Account Details</item>
         <item>Sign Out</item>
