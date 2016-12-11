@@ -21,22 +21,23 @@ public abstract class SQLCommand
                 "WHERE T3.UserID = "+UserID;
         return  query;
     }
-    public static String GetFirstName(int UserID){
-        String query = "SELECT FirstName from Students" + "Where Students.UserID = " + UserID;
-        return query;
-    }
-    public static String GetLasttName(int UserID){
-        String query = "SELECT LastName from Students" + "Where Students.UserID = " + UserID;
-        return query;
-    }
-    public static String GetDepartment(int UserID){
-        String query = "SELECT Department from Students" + "Where Students.UserID = " + UserID;
-        return query;
-    }
-    public static String GetDegree(int UserID){
-        String query = "SELECT Degree from Students" + "Where Students.UserID = " + UserID;
-        return query;
-    }
+//    public static String GetFirstName(int UserID){
+//        String query = "select Students.FirstName From Users, Students Where Users.UserID = Students.UserID and Users.UserID = '" + UserID + "'";
+//        return query;
+//    }
+
+//    public static String GetLasttName(int UserID){
+//        String query = "SELECT LastName from Students" + "Where Students.UserID = " + UserID;
+//        return query;
+//    }
+//    public static String GetDepartment(int UserID){
+//        String query = "SELECT Department from Students" + "Where Students.UserID = " + UserID;
+//        return query;
+//    }
+//    public static String GetDegree(int UserID){
+//        String query = "SELECT Degree from Students" + "Where Students.UserID = " + UserID;
+//        return query;
+//    }
 
 
     public static String GetCourseProfessors(int CourseID){
