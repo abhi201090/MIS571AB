@@ -12,7 +12,7 @@
     <com.example.sayan.mis571.util.MyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome"
+        android:text="Welcome!"
         android:id="@+id/Welcome"
         android:textSize="40dp"
         android:textColor="@color/roomchecker_color"

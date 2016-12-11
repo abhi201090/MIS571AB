@@ -58,6 +58,7 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
         switch (i){
             case 0:
                 prof_home_fragment prof_home = new prof_home_fragment();
+                prof_home.SetUserID(getIntent().getExtras().getInt("UserID"));
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, prof_home);
                 fragmentTransaction.commit();

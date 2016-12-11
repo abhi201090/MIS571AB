@@ -27,6 +27,11 @@ public abstract class SQLCommand
         return query;
     }
 
+    public static String GetInsInfo(int UserID){
+        String query = "SELECT FirstName, LastName, Departments.Department FROM Departments, Instructors WHERE " +
+                "Departments.ID = Instructors.Department AND UserID = " + Integer.toString(UserID);
+        return query;
+    }
 
     public static String GetCourseProfessors(int CourseID){
         String query = "SELECT T2.ID, T2.FirstName||' '||T2.LastName FROM InstructorCourse AS T1 " +

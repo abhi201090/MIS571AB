@@ -1,18 +1,115 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.sayan.mis571.fragments.prof_home_fragment">
+<LinearLayout
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:id="@+id/prof_home_txt"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_orange_light" />
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        tools:context="com.example.sayan.mis571.fragments.prof_home_fragment">
+        android:weightSum="1">
+    <!-- TODO: Update blank fragment layout -->
 
-</FrameLayout>
+
+    <com.example.sayan.mis571.util.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome!"
+        android:id="@+id/WelcomeIns"
+        android:textSize="40dp"
+        android:textColor="@color/roomchecker_color"
+        android:layout_marginTop="80dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.sayan.mis571.util.MyTextView
+            android:layout_height="wrap_content"
+            android:text="Last Name: "
+            android:id="@+id/LastNameIns"
+            android:layout_below="@id/FirstNameIns"
+            android:textColor="@color/roomchecker_color"
+            android:textSize="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_width="200dp" />
+        <com.example.sayan.mis571.util.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/LastNameValIns"
+            android:layout_below="@id/WelcomeIns"
+            android:textColor="@color/roomchecker_color"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:text="Not Available"
+            android:layout_marginTop="50dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.sayan.mis571.util.MyTextView
+            android:layout_height="wrap_content"
+            android:text="Department: "
+            android:id="@+id/DeptIns"
+            android:layout_below="@+id/LastNameIns"
+            android:textColor="@color/roomchecker_color"
+            android:layout_marginTop="50dp"
+            android:textSize="25dp"
+            android:layout_marginLeft="100dp"
+            android:layout_width="200dp" />
+
+        <com.example.sayan.mis571.util.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/DeptValIns"
+            android:layout_below="@id/WelcomeIns"
+            android:textColor="@color/roomchecker_color"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:text="Not Available"
+            android:layout_marginTop="50dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.sayan.mis571.util.MyTextView
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/WelcomeIns"
+            android:textColor="@color/roomchecker_color"
+            android:text="First Name:"
+            android:textSize="25dp"
+            android:id="@+id/FirstNameIns"
+            android:layout_marginLeft="100dp"
+            android:layout_width="200dp" />
+        <com.example.sayan.mis571.util.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FirstNameValIns"
+            android:layout_below="@id/WelcomeIns"
+            android:textColor="@color/roomchecker_color"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:text="Not Available"
+            android:layout_marginTop="50dp" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+
