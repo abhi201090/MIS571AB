@@ -50,7 +50,7 @@ public class DBOperator
  * Copy database file
  * From assets folder (in the project) to android folder (on device)
  */
-public static void copyDB(Context context) throws IOException,FileNotFoundException{
+public static void copyDB(Context context) throws IOException {
     String path = DBConstant.DATABASE_PATH + "/" + DBConstant.DATABASE_FILE;
     File file = new File(path);
     if (!file.exists()){

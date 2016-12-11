@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawerholder">
+    android:id="@+id/drawerholder"
+    android:background="@drawable/bg">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -12,11 +13,14 @@
         >
     </FrameLayout>
     <ListView
-        android:layout_width="match_parent"
+        android:layout_width="240dp"
         android:layout_height="match_parent"
         android:id="@+id/navlist"
         android:background="#dedede"
-        android:layout_gravity="start"></ListView>
+        android:layout_gravity="start"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:choiceMode="singleChoice"></ListView>
 
 
 </android.support.v4.widget.DrawerLayout>

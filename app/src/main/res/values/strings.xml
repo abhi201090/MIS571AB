@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MIS571</string>
+    <string name="app_name">RoomChecker</string>
 
     <string name="action_settings">Settings</string>
     <string name="opendrawer">Open</string>
@@ -25,6 +25,22 @@
         <item>Saturday</item>
         <item>Sunday</item>
     </string-array>
+    <string-array name="Prof_home_side">
+        <item>Home</item>
+        <item>Book Class Room</item>
+        <item>Book Conference Room</item>
+        <item>Account Details</item>
+        <item>Sign Out</item>
+    </string-array>
+    <string-array name="Stud_home_side">
+        <item>Home</item>
+        <item>Search Class</item>
+        <item>Book Conference Room</item>
+        <item>Account Details</item>
+        <item>Sign Out</item>
+    </string-array>
+
+
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

@@ -2,209 +2,269 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sayan.mis571.fragments.book_class">
+    tools:context="com.example.sayan.mis571.fragments.book_class"
+    android:background="@android:color/white">
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:backgroundTintMode="multiply"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:layout_marginTop="30dp">
 
-            <TextView
-                android:text="Building Name:"
-                android:textColor="@color/abc_primary_text_disable_only_material_light"
+            <com.example.sayan.mis571.util.MyTextView
+                android:text="Building Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="25dp"
                 android:textStyle="bold"
-                android:layout_marginTop="20dp"
                 android:id="@+id/textView4"
-                android:textSize="20dp" />
-
-            <TextView
-                android:text="Capacity:"
-                android:textColor="@color/abc_primary_text_disable_only_material_light"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="90dp"
-                android:textStyle="bold"
-                android:id="@+id/textView5"
-                android:layout_marginLeft="25dp"
-                android:textSize="20dp" />
+                android:textSize="22sp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/roomchecker_color"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="100dp" />
 
             <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/spinnerBuildingName"
                 android:layout_below="@+id/textView4"
                 android:layout_alignLeft="@+id/textView4"
                 android:layout_alignStart="@+id/textView4"
+                android:layout_marginTop="10dp"
+                android:layout_width="400dp"
+                android:layout_gravity="center" />
+
+            <com.example.sayan.mis571.util.MyTextView
+                android:text="Term:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textColor="@color/roomchecker_color"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginLeft="100dp"
                 android:layout_marginTop="10dp" />
 
             <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/spinnerTerm"
                 android:layout_below="@+id/textView2"
                 android:layout_alignLeft="@+id/textView2"
                 android:layout_alignStart="@+id/textView2"
                 android:layout_marginTop="10dp"
-                android:entries="@array/Terms" />
+                android:entries="@array/Terms"
+                android:layout_width="400dp"
+                android:layout_gravity="center"
+                android:spinnerMode="dialog" />
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:id="@+id/spinnerCapacity"
-                android:layout_below="@+id/textView5"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_marginTop="10dp"
-                android:layout_alignLeft="@+id/textView4" />
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:id="@+id/spinnerDays"
-                android:layout_below="@+id/textView9"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_marginTop="10dp"
-                android:layout_alignLeft="@+id/textView4"
-                android:entries="@array/Days"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:textIsSelectable="true"
-                android:hint="Enter Start Time"
-                android:id="@+id/starttime"
-                android:layout_below="@+id/textView3"
-                android:layout_alignStart="@+id/textView3"
-                android:layout_marginTop="10dp"
-                android:layout_alignLeft="@+id/textView3" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:hint="Enter End Time"
-                android:id="@+id/endtime"
-                android:textIsSelectable="true"
-                android:layout_below="@+id/textView6"
-                android:layout_alignStart="@+id/textView6"
-                android:layout_marginTop="10dp"
-                android:layout_alignLeft="@+id/textView6" />
-
-            <TextView
-                android:text="Term:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="160dp"
-                android:id="@+id/textView2"
-                android:textColor="@color/abc_primary_text_disable_only_material_light"
-                android:layout_marginLeft="25dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:text="Day Of the Week:"
-                android:textColor="@color/abc_primary_text_disable_only_material_light"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="25dp"
-                android:textStyle="bold"
-                android:layout_marginTop="330dp"
-                android:id="@+id/textView9"
-                android:textSize="20dp" />
-
-            <TextView
-                android:text="Start Time:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView3"
-                android:layout_marginTop="410dp"
-                android:layout_marginLeft="25dp"
-                android:textColor="@color/abc_primary_text_disable_only_material_light"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:text="End Time:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView6"
-                android:textColor="@color/abc_primary_text_disable_only_material_light"
-                android:layout_marginTop="490dp"
-                android:layout_marginLeft="25dp"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <CheckBox
-                android:text="Projector"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:layout_below="@id/endtime"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/hasProjector" />
-
-            <CheckBox
-                android:text="Computer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/hasProjector"
-                android:textSize="20dp"
-                android:layout_marginLeft="165dp"
-                android:id="@+id/hasComputer" />
-
-            <CheckBox
-                android:text="Mic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/hasComputer"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="30dp"
-                android:textSize="20dp"
-                android:id="@+id/hasMic" />
-
-            <Button
-                android:text="Search"
-                android:layout_width="125dp"
-                android:layout_height="55dp"
-                android:textSize="20dp"
-                android:layout_marginTop="620dp"
-                android:layout_marginLeft="195dp"
-                android:id="@+id/btnSearch" />
-
-            <TextView
+            <com.example.sayan.mis571.util.MyTextView
                 android:text="Course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/abc_primary_text_disable_only_material_light"
-                android:layout_marginLeft="25dp"
-                android:textSize="20dp"
+                android:textColor="@color/roomchecker_color"
+                android:textSize="22sp"
                 android:textStyle="bold"
-                android:layout_marginTop="240dp"
-                android:id="@+id/textView11" />
+                android:id="@+id/textView11"
+                android:layout_gravity="left"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp" />
+
             <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/spinnerCourse"
                 android:layout_below="@+id/textView11"
                 android:layout_alignStart="@+id/textView4"
                 android:layout_marginTop="10dp"
-                android:layout_alignLeft="@+id/textView4" />
+                android:layout_alignLeft="@+id/textView4"
+                android:layout_width="400dp"
+                android:layout_gravity="center" />
+
+            <com.example.sayan.mis571.util.MyTextView
+                android:text="Capacity"
+                android:textColor="@color/roomchecker_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:id="@+id/textView5"
+                android:textSize="22sp"
+                android:layout_weight="0.02"
+                android:layout_gravity="left"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp" />
+
+            <Spinner
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerCapacity"
+                android:layout_below="@+id/textView5"
+                android:layout_alignStart="@+id/textView4"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/textView4"
+                android:layout_width="400dp"
+                android:layout_gravity="center" />
+
+            <com.example.sayan.mis571.util.MyTextView
+                android:text="Day Of the Week"
+                android:textColor="@color/roomchecker_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textStyle="bold"
+                android:id="@+id/textView9"
+                android:textSize="22sp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp" />
+
+            <Spinner
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerDays"
+                android:layout_below="@+id/textView9"
+                android:layout_alignStart="@+id/textView4"
+                android:layout_alignLeft="@+id/textView4"
+                android:entries="@array/Days"
+                android:layout_width="400dp"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.example.sayan.mis571.util.MyTextView
+                        android:text="Start Time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView3"
+                        android:textColor="@color/roomchecker_color"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="40dp" />
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:textIsSelectable="true"
+                        android:hint="Enter Start Time"
+                        android:id="@+id/starttime"
+                        android:layout_below="@+id/textView3"
+                        android:layout_alignStart="@+id/textView3"
+                        android:layout_marginTop="10dp"
+                        android:layout_alignLeft="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="40dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.example.sayan.mis571.util.MyTextView
+                        android:text="End Time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView6"
+                        android:textColor="@color/roomchecker_color"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/starttime"
+                        android:layout_alignStart="@+id/starttime"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="40dp" />
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:hint="Enter End Time"
+                        android:id="@+id/endtime"
+                        android:textIsSelectable="true"
+                        android:layout_below="@+id/textView6"
+                        android:layout_alignStart="@+id/textView6"
+                        android:layout_marginTop="10dp"
+                        android:layout_alignLeft="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:layout_marginRight="40dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <CheckBox
+                    android:text="Mic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/hasComputer"
+                    android:layout_alignParentRight="true"
+                    android:textSize="20sp"
+                    android:id="@+id/hasMic"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="60dp" />
+
+                <CheckBox
+                    android:text="Computer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/hasProjector"
+                    android:textSize="20sp"
+                    android:id="@+id/hasComputer"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:text="Projector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_below="@id/endtime"
+                    android:id="@+id/hasProjector"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <ImageButton
+                android:text="Search"
+                android:id="@+id/btnSearch"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:src="@drawable/btn_search"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/screen_background_light_transparent" />
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </ScrollView>
 
