@@ -29,20 +29,16 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student__home);
+        setContentView(R.layout.activity_student_home);
         drawerLayout= (DrawerLayout) findViewById(R.id.drawerholder);
         navList=(ListView)findViewById(R.id.navlist);
-        ArrayList<String> navArray= new ArrayList<String>();
-        navArray.add("Home");
-        navArray.add("Search Class");
-        navArray.add("Book Conference Room");
-        navArray.add("Account Details");
-        navArray.add("Sign Out");
         navList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navArray);
+        String[] navtitle = getResources().getStringArray(R.array.Stud_home_side);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navtitle);
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(this);
         actionBarDrawerToggle= new ActionBarDrawerToggle(this,drawerLayout,R.string.opendrawer,R.string.closedrawer);

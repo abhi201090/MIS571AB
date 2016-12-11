@@ -41,13 +41,13 @@
     </LinearLayout>
 
     <ImageButton
-        android:src="@drawable/btn"
+        android:src="@drawable/btn_login"
         android:layout_marginTop="120dp"
         android:layout_gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:id="@+id/welcomebtn"
         android:onClick="onClick"
         android:layout_weight="0.01"
         android:background="@drawable/bg"
-        android:layout_height="55dp" />
+        android:layout_height="100dp" />
 </LinearLayout>

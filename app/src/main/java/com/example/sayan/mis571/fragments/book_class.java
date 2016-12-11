@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
@@ -40,7 +41,7 @@ public class book_class extends Fragment {
     private static List<Course> courseList ;
     private Spinner spinnerBuilding;
     private Spinner spinnerCapacity;
-    private Button btn;
+    private ImageButton btn;
     private Building selectedBuilding;
     private Spinner spinnerTerm;
     private Spinner spinnerCourse;
@@ -63,7 +64,7 @@ public class book_class extends Fragment {
         hasProjector = (CheckBox)rootView.findViewById(R.id.hasProjector);
         hasMic = (CheckBox)rootView.findViewById(R.id.hasMic);
         hasComputer = (CheckBox)rootView.findViewById(R.id.hasComputer);
-        btn = (Button)rootView.findViewById(R.id.btnSearch);
+        btn = (ImageButton)rootView.findViewById(R.id.btnSearch);
         buildingList = new ArrayList<Building>();
         courseList = new ArrayList<Course>();
         LoadBuildings(rootView);
