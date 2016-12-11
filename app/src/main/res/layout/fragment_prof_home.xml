@@ -59,6 +59,33 @@
 
         <com.example.sayan.mis571.util.MyTextView
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/WelcomeIns"
+            android:textColor="@color/roomchecker_color"
+            android:text="First Name:"
+            android:textSize="25dp"
+            android:id="@+id/FirstNameIns"
+            android:layout_marginLeft="100dp"
+            android:layout_width="200dp" />
+        <com.example.sayan.mis571.util.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FirstNameValIns"
+            android:layout_below="@id/WelcomeIns"
+            android:textColor="@color/roomchecker_color"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:text="Not Available"
+            android:layout_marginTop="50dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.sayan.mis571.util.MyTextView
+            android:layout_height="wrap_content"
             android:text="Department: "
             android:id="@+id/DeptIns"
             android:layout_below="@+id/LastNameIns"
@@ -72,33 +99,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/DeptValIns"
-            android:layout_below="@id/WelcomeIns"
-            android:textColor="@color/roomchecker_color"
-            android:textSize="25dp"
-            android:layout_weight="1"
-            android:text="Not Available"
-            android:layout_marginTop="50dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.example.sayan.mis571.util.MyTextView
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_below="@id/WelcomeIns"
-            android:textColor="@color/roomchecker_color"
-            android:text="First Name:"
-            android:textSize="25dp"
-            android:id="@+id/FirstNameIns"
-            android:layout_marginLeft="100dp"
-            android:layout_width="200dp" />
-        <com.example.sayan.mis571.util.MyTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/FirstNameValIns"
             android:layout_below="@id/WelcomeIns"
             android:textColor="@color/roomchecker_color"
             android:textSize="25dp"
