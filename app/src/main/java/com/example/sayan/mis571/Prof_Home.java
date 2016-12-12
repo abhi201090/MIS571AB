@@ -1,5 +1,6 @@
 package com.example.sayan.mis571;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -18,8 +19,6 @@ import com.example.sayan.mis571.fragments.book_class;
 import com.example.sayan.mis571.fragments.book_conf_room;
 import com.example.sayan.mis571.fragments.prof_home_fragment;
 
-import java.util.ArrayList;
-
 public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -28,21 +27,20 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prof__home);
+        setContentView(R.layout.activity_prof_home);
+        //
         drawerLayout= (DrawerLayout) findViewById(R.id.drawerholder);
         navList=(ListView)findViewById(R.id.navlist);
-        ArrayList<String> navArray= new ArrayList<String>();
-        navArray.add("Home");
-        navArray.add("Book Class Room");
-        navArray.add("Book Conference Room");
-        navArray.add("Account Details");
         navList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navArray);
+        String [] navtitle = getResources().getStringArray(R.array.Prof_home_side);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navtitle);
         navList.setAdapter(adapter);
         navList.setOnItemClickListener(this);
+
         actionBarDrawerToggle= new ActionBarDrawerToggle(this,drawerLayout,R.string.opendrawer,R.string.closedrawer);
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         ActionBar actionBar= getSupportActionBar();
@@ -60,6 +58,7 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
         switch (i){
             case 0:
                 prof_home_fragment prof_home = new prof_home_fragment();
+                prof_home.SetUserID(getIntent().getExtras().getInt("UserID"));
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, prof_home);
                 fragmentTransaction.commit();
@@ -83,6 +82,10 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
                 fragmentTransaction.replace(R.id.fragmentholder, acc_det);
                 fragmentTransaction.commit();
                 break;
+            case 4:
+                //SignOut
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
         }
     }
 

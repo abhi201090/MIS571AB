@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -8,63 +8,104 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.sayan.mis571.MainActivity">
+    android:background="@drawable/bg"
+    tools:context="com.example.sayan.mis571.MainActivity"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome To Class Search"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:textSize="32sp"
-        android:textColor="@color/abc_primary_text_disable_only_material_light"
-        android:textStyle="bold"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_weight="0.07"
+        android:layout_marginTop="80dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/icon"
+            android:layout_above="@+id/EditTxtUsername"
+            android:layout_alignStart="@+id/EditTxtUsername"
+            android:contentDescription="the icon"
+            android:layout_height="80dp"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:src="@drawable/roomchecker"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="false"
+            android:contentDescription="the title"
+            android:layout_height="100dp"
+            android:layout_width="400dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center" />
+    </LinearLayout>
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="65dp"
         android:id="@+id/EditTxtUsername"
         android:layout_gravity="center_horizontal"
+        android:backgroundTint="#F0F0F0"
         android:hint="UserName"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:background="@drawable/textedit"
+        android:textAlignment="center"
+        android:singleLine="true"
+        android:textColorLink="?android:attr/textColorPrimary"
+        android:fontFamily="monospace"
+        android:typeface="monospace"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:selectAllOnFocus="false"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:inputType="textPassword"
         android:layout_height="65dp"
+        android:singleLine="true"
         android:id="@+id/EditTxtPass"
+        android:backgroundTint="#F0F0F0"
         android:layout_gravity="center_horizontal"
-        android:hint="PassWord"
-        android:layout_marginTop="220dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:hint="Password"
+        android:background="@drawable/textedit"
+        android:textAlignment="center"
+        android:fontFamily="monospace"
+        android:typeface="monospace"
+        android:textSize="20sp"
+        android:layout_below="@+id/EditTxtUsername"
+        android:layout_marginTop="50dp" />
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="84dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginTop="299dp"
-        android:id="@+id/button" />
+        android:layout_marginTop="80dp">
 
-    <Button
-        android:text="Button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/button"
-        android:layout_toStartOf="@+id/button"
-        android:layout_marginRight="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="299dp"
-        android:id="@+id/button2" />
+        <ImageButton
+            android:src="@drawable/btn_login"
+            android:background="@drawable/bg"
+            android:id="@+id/button"
+            android:cropToPadding="false"
+            android:adjustViewBounds="false"
+            android:contentDescription="button on the left"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp" />
 
-</RelativeLayout>
+        <ImageButton
+            android:src="@drawable/btn_pswd"
+            android:background="@drawable/bg"
+            android:id="@+id/button2"
+            android:cropToPadding="false"
+            android:adjustViewBounds="false"
+            android:contentDescription="button on the right"
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp" />
+    </LinearLayout>
+
+</LinearLayout>

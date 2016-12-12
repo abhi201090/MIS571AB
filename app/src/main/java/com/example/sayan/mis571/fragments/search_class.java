@@ -38,15 +38,17 @@ public class search_class extends Fragment {
     private static List<Instructors> instList;
     private Spinner studentCourse;
     private Spinner spinnerProfessor;
+    private TextView testID;
     public search_class() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_search_class, container, false);
+        testID = (TextView)rootView.findViewById(R.id.testID);
+        testID.setText("User ID:" + Integer.toString(UserID));
         courseList = new ArrayList<Course>();
         instList = new ArrayList<Instructors>();
         studentCourse = (Spinner)rootView.findViewById(R.id.spinnerCourse);
