@@ -179,7 +179,7 @@ public class book_conf_room extends Fragment {
                 i++;
             }
             ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(),
-                    android.R.layout.simple_spinner_item, values);
+                    android.R.layout.simple_spinner_dropdown_item, values);
             spinnerBuilding.setAdapter(adapt);
         }
     }

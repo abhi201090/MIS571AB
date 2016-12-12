@@ -78,12 +78,12 @@ public abstract class SQLCommand
                 "(SELECT Distinct T1.ClassID FROM ClassBook AS T1\n" +
                 "JOIN Classrooms AS T2 ON T1.ClassID = T2.ID\n" +
                 "JOIN Buildings As T3 ON T3.ID = T2.Building\n" +
-                "WHERE (Time(T1.to_Time) >= Time('"+start_time+"') OR Time(T1.From_Time)<=Time('"+end_time+"')) AND T2.Building = "+building+"  AND T1.Day = '"+day+"' AND T1.Semester = '"+term+"' AND T1.Year = "+year+") \n" +
+                "WHERE (Time(T1.To_Time) >= Time('"+start_time+"') OR Time(T1.From_Time)<=Time('"+end_time+"')) AND T2.Building = "+building+"  AND T1.Day = '"+day+"' AND T1.Semester = '"+term+"' AND T1.Year = "+year+") \n" +
                 "AND Capacity = " + capacity +
-                " AND HasComputer = " + hasComp +
-                " AND HasMic = " + hasMic +
-                " AND HasProjector = " + hasProj +
-                " AND Building = " + building;
+                " AND (HasComputer = " + hasComp +
+                " OR HasMic = " + hasMic +
+                " OR HasProjector = " + hasProj +
+                " ) AND Building = " + building;
         return query;
     }
 
@@ -107,6 +107,23 @@ public abstract class SQLCommand
                 "JOIN Classrooms T3 ON T1.ClassID = T3.ID\n" +
                 "JOIN Buildings T4 ON T3.Building = T4.ID\n" +
                 "WHERE T1.CourseID = "+courseID+" AND T2.ID = "+instID;
+        return query;
+    }
+    public static String ShowRoomBooked(int UserID){
+        String query = "SELECT ConferenceRooms.Name, ConfBook.FromDate, ConfBook.ToDate, ConfBook.Status " +
+                "FROM Users, ConfBook, ConferenceRooms " +
+                "WHERE Users.UserID = ConfBook.UserID " +
+                "AND ConfBook.ConferenceRoomID = ConferenceRooms.ID " +
+                "AND Users.UserID = " +UserID;
+        return query;
+    }
+
+    public static String ShowClassBooked(int UserID){
+        String query = "SELECT Course.CourseCode, Classrooms.Name, ClassBook.Year, ClassBook.Semester, ClassBook.Day, ClassBook.From_Time, ClassBook.To_Time " +
+                "FROM Course, Classrooms, ClassBook " +
+                "WHERE Course.ID = ClassBook.CourseID " +
+                "AND Classrooms.ID = ClassBook.ClassID " +
+                "AND ClassBook.UserID = " + UserID;
         return query;
     }
 }

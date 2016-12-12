@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/title"
+        android:id="@+id/imageView"
+        android:layout_marginTop="100dp"
+        android:layout_weight="0.03" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/demo"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0.07" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="0.20"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="150dp"
+        android:background="@drawable/bgpattern"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/icon"
+            android:id="@+id/imageView3"
+            android:layout_weight="1"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:src="@drawable/btn_login"
+        android:layout_marginTop="120dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:id="@+id/welcomebtn"
+        android:onClick="onClick"
+        android:layout_weight="0.01"
+        android:background="@drawable/bg"
+        android:layout_height="100dp" />
+</LinearLayout>

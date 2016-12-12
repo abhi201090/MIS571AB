@@ -96,7 +96,7 @@ public class conf_search_results  extends Fragment{
                 params[1] = userID;
                 params[2] = start;
                 params[3] = end;
-                params[4] = 1;
+                params[4] = "Confirmed";
                 //Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetInsertConfBookQuery(Integer.parseInt(confID), userID, startDate, endDate));
                 DBOperator.getInstance().execSQL(SQLCommand.GetInsertConfBookQuery(),params);
                 Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetConfBooks(buildingID, formatter.format(startDate),formatter.format(endDate)));

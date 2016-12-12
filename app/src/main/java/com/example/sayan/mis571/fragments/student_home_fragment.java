@@ -27,13 +27,14 @@ public class student_home_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_student_home, container, false);
-//
-//        TextView welcome = (TextView) rootView.findViewById(R.id.Welcome);
-//        TextView firstName = (TextView) rootView.findViewById(R.id.FirstName);
-//        TextView lastName = (TextView) rootView.findViewById(R.id.LastName);
-//        TextView department = (TextView) rootView.findViewById(R.id.Dept);
-//        TextView degree = (TextView) rootView.findViewById(R.id.Degree);
-//        TextView year = (TextView) rootView.findViewById(R.id.Year);
+
+        TextView welcome = (TextView) rootView.findViewById(R.id.Welcome);
+        TextView firstName = (TextView) rootView.findViewById(R.id.FirstName);
+        TextView lastName = (TextView) rootView.findViewById(R.id.LastName);
+        TextView department = (TextView) rootView.findViewById(R.id.Dept);
+        TextView degree = (TextView) rootView.findViewById(R.id.Degree);
+        TextView year = (TextView) rootView.findViewById(R.id.Year);
+
         TextView firstNameval = (TextView) rootView.findViewById(R.id.FirstNameVal);
         TextView lastNameval = (TextView) rootView.findViewById(R.id.LastNameVal);
         TextView departmentval = (TextView) rootView.findViewById(R.id.DeptVal);

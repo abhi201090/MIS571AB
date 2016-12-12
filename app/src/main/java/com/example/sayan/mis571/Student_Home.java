@@ -85,6 +85,7 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 3:
                 acc_details acc_det = new acc_details();
+                acc_det.SetUserID(getIntent().getExtras().getInt("UserID"));
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, acc_det);
                 fragmentTransaction.commit();

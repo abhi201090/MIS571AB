@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.sayan.mis571.fragments.acc_details;
+import com.example.sayan.mis571.fragments.acc_details_prof;
 import com.example.sayan.mis571.fragments.book_class;
 import com.example.sayan.mis571.fragments.book_conf_room;
 import com.example.sayan.mis571.fragments.prof_home_fragment;
@@ -72,17 +73,25 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
                 break;
             case 2:
                 book_conf_room book_conf = new book_conf_room();
+                book_conf.SetUserID(getIntent().getExtras().getInt("UserID"));
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, book_conf);
                 fragmentTransaction.commit();
                 break;
             case 3:
+                acc_details_prof acc_details_prof = new acc_details_prof();
+                acc_details_prof.SetUserID(getIntent().getExtras().getInt("UserID"));
+                fragmentTransaction= fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentholder, acc_details_prof);
+                fragmentTransaction.commit();
+                break;
+            case 4:
                 acc_details acc_det = new acc_details();
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, acc_det);
                 fragmentTransaction.commit();
                 break;
-            case 4:
+            case 5:
                 //SignOut
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);

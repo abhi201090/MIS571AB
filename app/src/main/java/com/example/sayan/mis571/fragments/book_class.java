@@ -65,6 +65,7 @@ public class book_class extends Fragment {
         hasMic = (CheckBox)rootView.findViewById(R.id.hasMic);
         hasComputer = (CheckBox)rootView.findViewById(R.id.hasComputer);
         btn = (ImageButton)rootView.findViewById(R.id.btnSearch);
+
         buildingList = new ArrayList<Building>();
         courseList = new ArrayList<Course>();
         LoadBuildings(rootView);
@@ -182,13 +183,18 @@ public class book_class extends Fragment {
             }
         });
     }
+
+
     public void SetUserID(int userID){
         UserID = userID;
     }
 
     public void LoadBuildings(View rootView){
+        //SQL query to get all the Building ID, Building Name
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.GetBuildings());
+        //build an array of String to hold all the values, set length
         String[] values = new String[(cursor.getCount()+1)];
+
         int i =0;
         if(cursor.getCount()!=0) {
             values[0] = "Select a Building";
@@ -197,8 +203,7 @@ public class book_class extends Fragment {
                 values[i+1] = cursor.getString(1);
                 i++;
             }
-            ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(),
-                    android.R.layout.simple_spinner_item, values);
+            ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, values);
             spinnerBuilding.setAdapter(adapt);
         }
     }
@@ -214,8 +219,7 @@ public class book_class extends Fragment {
                 i++;
             }
         }
-        ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(),
-                android.R.layout.simple_spinner_item, values);
+        ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, values);
         spinnerCapacity.setAdapter(adapt);
     }
 
@@ -231,8 +235,7 @@ public class book_class extends Fragment {
                 values[i+1] = cursor.getString(1);
                 i++;
             }
-            ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(),
-                    android.R.layout.simple_spinner_item, values);
+            ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, values);
             spinnerCourse.setAdapter(adapt);
         }
     }

@@ -8,20 +8,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <TextView
+        <com.example.sayan.mis571.util.MyTextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/stFloorNo"
-            android:textColor="#FF00FF"
             android:textSize="15sp" />
 
-        <TextView
+        <com.example.sayan.mis571.util.MyTextView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/stClassRoom"
-            android:textColor="#FF00FF"
             android:textSize="15sp" />
 
 
