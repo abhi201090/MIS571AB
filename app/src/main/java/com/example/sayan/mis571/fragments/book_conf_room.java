@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
@@ -37,19 +38,18 @@ public class book_conf_room extends Fragment {
     private static List<Building> buildingList;
     private static Date startDateTime;
     private static Date endDateTime;
-    private Button btn;
+    private ImageButton btn;
 
     private Spinner spinnerBuilding;
     public book_conf_room() {
         // Required empty public constructor
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_book_conf_room, container, false);
         spinnerBuilding = (Spinner)rootView.findViewById(R.id.spinnerBuilding);
-        btn = (Button)rootView.findViewById(R.id.btnSearchConf);
+        btn = (ImageButton) rootView.findViewById(R.id.btnSearchConf);
         buildingList = new ArrayList<Building>();
         startDateTime = new Date();
         endDateTime = new Date();
