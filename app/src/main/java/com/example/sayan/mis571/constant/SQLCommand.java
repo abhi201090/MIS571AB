@@ -34,17 +34,18 @@ public abstract class SQLCommand
         return query;
     }
 
-    public static String GetConfBooks(int buildingID, Date start, Date end){
+    public static String GetConfBooks(int buildingID, String start, String end){
         String query = "SELECT ID as _id, Name,Floor FROM ConferenceRooms WHERE ID NOT IN (\n" +
                 "SELECT T2.ID FROM ConfBook AS T1\n" +
                 "JOIN ConferenceRooms AS T2 ON T1.ConferenceRoomID = T2.ID\n" +
                 "JOIN Buildings AS T3 ON T3.ID = T2.Building\n" +
-                "WHERE (T1.ToDate > Datetime('"+start+"') OR T1.FromDate< Datetime('"+end+"')) AND T3.ID = "+buildingID+") AND Building = "+buildingID;
+                "WHERE (T1.ToDate >= Datetime('"+start+"') OR T1.FromDate<= Datetime('"+end+"')) AND T3.ID = "+buildingID+") AND Building = "+buildingID;
         return  query;
     }
 
-    public static String GetInsertConfBookQuery(int confRoomID,int userID, Date startDate, Date endDate){
-        String query = "INSERT INTO ConfBook(ConferenceRoomID, UserID, FromDate,ToDate,Status) Values("+confRoomID+","+userID+",'"+startDate+"','"+endDate+"','Confirmed')";
+    public static String GetInsertConfBookQuery(){
+        //String query = "INSERT INTO ConfBook(ConferenceRoomID, UserID, FromDate,ToDate,Status) Values("+confRoomID+","+userID+",'"+startDate+"','"+endDate+"','Confirmed')";
+        String query = "INSERT INTO ConfBook(ConferenceRoomID, UserID, FromDate,ToDate,Status) Values(?,?,?,?,?)";
         return query;
     }
 

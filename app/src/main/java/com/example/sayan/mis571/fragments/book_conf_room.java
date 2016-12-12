@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +30,7 @@ import com.example.sayan.mis571.util.Building;
 import com.example.sayan.mis571.util.DBOperator;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class book_conf_room extends Fragment {
     private int UserID;
@@ -71,9 +73,11 @@ public class book_conf_room extends Fragment {
                 mTimePicker = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        st_time.setText( selectedHour + ":" + selectedMinute);
+                        //st_time.setText( selectedHour + ":" + selectedMinute);
                         startDateTime.setHours(selectedHour);
                         startDateTime.setMinutes(selectedMinute);
+                        SimpleDateFormat formatt = new SimpleDateFormat("HH:mm");
+                        st_time.setText(formatt.format(startDateTime));
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Select Date");
@@ -93,13 +97,15 @@ public class book_conf_room extends Fragment {
                 mDatePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        dateselect.setText(month + "/" + dayOfMonth + "/" + year);
-                        startDateTime.setYear(year);
+                        //dateselect.setText(month + "/" + dayOfMonth + "/" + year);
+                        startDateTime.setYear(year - 1900);
                         startDateTime.setMonth(month);
                         startDateTime.setDate(dayOfMonth);
-                        endDateTime.setYear(year);
+                        endDateTime.setYear(year - 1900);
                         endDateTime.setMonth(month);
                         endDateTime.setDate(dayOfMonth);
+                        SimpleDateFormat formatt = new SimpleDateFormat("yyyy-MM-dd");
+                        dateselect.setText(formatt.format(startDateTime));
                     }
                 }, year, month, day);
                 mDatePicker.setTitle("Select Date");
@@ -118,9 +124,11 @@ public class book_conf_room extends Fragment {
                 mTimePicker = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        end_time.setText( selectedHour + ":" + selectedMinute);
+                        //end_time.setText( selectedHour + ":" + selectedMinute);
                         endDateTime.setHours(selectedHour);
                         endDateTime.setMinutes(selectedMinute);
+                        SimpleDateFormat formatt = new SimpleDateFormat("HH:mm");
+                        end_time.setText(formatt.format(endDateTime));
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Select End Time");
@@ -132,13 +140,18 @@ public class book_conf_room extends Fragment {
             @Override
             public void onClick(View v) {
                 Date current = Calendar.getInstance().getTime();
-                if(startDateTime.after(current) && endDateTime.after(startDateTime)){
-                    int buildingID = buildingList.stream().filter(b -> b.GetBuildingName().equals(spinnerBuilding.getSelectedItem())).findFirst().get().GetBuildingID();
-                    Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetConfBooks(buildingID, startDateTime,endDateTime));
+                String s = spinnerBuilding.getSelectedItem().toString();
+                if(startDateTime.after(current) && endDateTime.after(startDateTime) && !spinnerBuilding.getSelectedItem().toString().equals("Select a Building")){
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.US);
+                    int buildingID = buildingList.stream().filter(b -> b.GetBuildingName().equals(spinnerBuilding.getSelectedItem().toString())).findFirst().get().GetBuildingID();
+                    Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetConfBooks(buildingID, formatter.format(startDateTime),formatter.format(endDateTime)));
                     int count = c.getCount();
                     if(c.getCount()>0){
                         conf_search_results results = new conf_search_results();
                         results.SetUserID(UserID);
+                        results.SetBuildingID(buildingID);
+                        results.SetEndDate(endDateTime);
+                        results.SetStartDate(startDateTime);
                         results.SetCursor(c);
                         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();

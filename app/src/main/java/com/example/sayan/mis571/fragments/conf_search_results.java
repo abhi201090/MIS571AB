@@ -12,11 +12,15 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 
+
 import com.example.sayan.mis571.R;
 import com.example.sayan.mis571.constant.SQLCommand;
 import com.example.sayan.mis571.util.Conf_Rooms;
 import com.example.sayan.mis571.util.DBOperator;
 
+import java.text.DateFormat;
+import java.util.Locale;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,9 +85,22 @@ public class conf_search_results  extends Fragment{
         public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
             Cursor cursor = (Cursor) listView.getItemAtPosition(position);
             String confID = cursor.getString(0);
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.US);
+
             try {
-                Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetInsertConfBookQuery(Integer.parseInt(confID), userID, startDate, endDate));
-                c = DBOperator.getInstance().execQuery(SQLCommand.GetConfBooks(buildingID, startDate,endDate));
+                String s = formatter.format(startDate);
+                String start = formatter.format(startDate);
+                String end = formatter.format(endDate);
+                Object[] params = new Object[5];
+                params[0] = Integer.parseInt(confID);
+                params[1] = userID;
+                params[2] = start;
+                params[3] = end;
+                params[4] = 1;
+                //Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetInsertConfBookQuery(Integer.parseInt(confID), userID, startDate, endDate));
+                DBOperator.getInstance().execSQL(SQLCommand.GetInsertConfBookQuery(),params);
+                Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetConfBooks(buildingID, formatter.format(startDate),formatter.format(endDate)));
+                int count = c.getCount();
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                         getActivity().getApplicationContext(), R.layout.fragment_confroom_listview, c,
                         new String[] {"Floor", "Name"}, new int[] {
@@ -92,7 +109,7 @@ public class conf_search_results  extends Fragment{
                 listView.setAdapter(adapter);
             }
             catch (Exception e){
-
+                String s = "";
             }
             Toast.makeText(getActivity().getApplicationContext(),"Conference Room Booked!", Toast.LENGTH_LONG).show();
         }
