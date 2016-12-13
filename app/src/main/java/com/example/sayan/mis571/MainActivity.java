@@ -2,16 +2,12 @@ package com.example.sayan.mis571;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.sayan.mis571.constant.SQLCommand;
@@ -86,7 +82,7 @@ public class MainActivity extends Activity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dlgAlert.setMessage("Please Contact the WPI IT desk");
+                dlgAlert.setMessage("Please Contact the IT desk");
                 dlgAlert.setPositiveButton("OK", null);
                 dlgAlert.setCancelable(true);
                 dlgAlert.setIcon(R.drawable.icon);
