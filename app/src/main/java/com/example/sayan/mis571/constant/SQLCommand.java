@@ -34,6 +34,7 @@ public abstract class SQLCommand
     }
 
     public static String GetCourseProfessors(int CourseID){
+//        e||' '||T？？？
         String query = "SELECT T2.ID, T2.FirstName||' '||T2.LastName FROM InstructorCourse AS T1 " +
                 "JOIN  Instructors AS T2 ON T1.InstructorID = T2.ID " +
                 "WHERE CourseID = " + CourseID;
