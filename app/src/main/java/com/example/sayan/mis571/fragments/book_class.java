@@ -117,7 +117,16 @@ public class book_class extends Fragment {
                 mTimePicker = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        st_time.setText( selectedHour + ":" + selectedMinute);
+                        //st_time.setText( selectedHour + ":" + selectedMinute);
+                        try{
+                            DateFormat formatter = new SimpleDateFormat("HH:mm");
+                            Date e_time = formatter.parse(selectedHour + ":" + selectedMinute);
+                            SimpleDateFormat patterbn = new SimpleDateFormat("HH:mm");
+                            st_time.setText(patterbn.format(e_time));
+                        }
+                        catch (Exception e){
+
+                        }
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Select Start Time");
@@ -135,7 +144,17 @@ public class book_class extends Fragment {
                 mTimePicker = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        end_time.setText( selectedHour + ":" + selectedMinute);
+                        //end_time.setText( selectedHour + ":" + selectedMinute);
+                        try{
+                            DateFormat formatter = new SimpleDateFormat("HH:mm");
+                            Date e_time = formatter.parse(selectedHour + ":" + selectedMinute);
+                            SimpleDateFormat patterbn = new SimpleDateFormat("HH:mm");
+                            end_time.setText(patterbn.format(e_time));
+                        }
+                        catch (Exception e){
+
+                        }
+
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Select End Time");
