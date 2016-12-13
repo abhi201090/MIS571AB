@@ -30,6 +30,7 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
     private AlertDialog.Builder SignOutAlert;
+    private  acc_details acc_det;
 
 
     @Override
@@ -84,7 +85,7 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
                 fragmentTransaction.commit();
                 break;
             case 3:
-                acc_details acc_det = new acc_details();
+                acc_det = new acc_details();
                 acc_det.SetUserID(getIntent().getExtras().getInt("UserID"));
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, acc_det);
@@ -92,6 +93,9 @@ public class Student_Home extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case 4:
                 //SignOut
+                if(acc_det!= null){
+                    acc_det.ClearData();
+                }
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
 

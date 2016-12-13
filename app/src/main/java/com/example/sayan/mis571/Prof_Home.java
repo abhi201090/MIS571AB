@@ -27,6 +27,7 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
     private ListView navList;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
+    private acc_details acc_det;
 
 
     @Override
@@ -86,13 +87,17 @@ public class Prof_Home extends AppCompatActivity implements AdapterView.OnItemCl
                 fragmentTransaction.commit();
                 break;
             case 4:
-                acc_details acc_det = new acc_details();
+                acc_det = new acc_details();
+                acc_det.SetUserID(getIntent().getExtras().getInt("UserID"));
                 fragmentTransaction= fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentholder, acc_det);
                 fragmentTransaction.commit();
                 break;
             case 5:
                 //SignOut
+                if(acc_det!=null){
+                    acc_det.ClearData();
+                }
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
         }

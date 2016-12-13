@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.sayan.mis571.R;
 import com.example.sayan.mis571.constant.SQLCommand;
@@ -178,6 +179,9 @@ public class book_class extends Fragment {
                         fragmentTransaction.replace(R.id.fragmentholder, results);
                         fragmentTransaction.commit();
                     }
+                    else{
+                        Toast.makeText(getActivity().getApplicationContext(),"No Result", Toast.LENGTH_LONG).show();
+                    }
 
                 }
             }
@@ -218,9 +222,10 @@ public class book_class extends Fragment {
                 values[i+1] = cursor.getString(0);
                 i++;
             }
+            ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, values);
+            spinnerCapacity.setAdapter(adapt);
         }
-        ArrayAdapter adapt = new ArrayAdapter (getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, values);
-        spinnerCapacity.setAdapter(adapt);
+
     }
 
     public void LoadCourses(View rootView,String term){

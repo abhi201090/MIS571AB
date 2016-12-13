@@ -18,6 +18,10 @@ import com.example.sayan.mis571.constant.SQLCommand;
 import com.example.sayan.mis571.util.Conf_Rooms;
 import com.example.sayan.mis571.util.DBOperator;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +67,14 @@ public class book_class_search_results extends Fragment {
                 cv.put("Day","");
                 cv.put("From_Time","");
                 cv.put("To_Time","");*/
+                DateFormat formatter = new SimpleDateFormat("HH:mm");
+                java.util.Date s_time = formatter.parse(start_time);
+                java.util.Date e_time = formatter.parse(end_time);
+                SimpleDateFormat pattern = new SimpleDateFormat("HH:mm");
+                java.util.Date d = new java.util.Date();
+
+                String s1 = pattern.format(s_time);
+                String s2 = pattern.format(e_time);
                 Object[] params = new Object[9];
                 params[0]=user_id;
                 params[1]=classID;
@@ -71,8 +83,8 @@ public class book_class_search_results extends Fragment {
                 params[4]=course_id;
                 params[5]="Confirmed";
                 params[6]=day;
-                params[7]=start_time;
-                params[8]=end_time;
+                params[7]=s1;
+                params[8]=s2;
                 DBOperator.getInstance().execSQL(SQLCommand.GetInsertClassBook(),params);
                 Cursor c = DBOperator.getInstance().execQuery(SQLCommand.GetClassBookings(start_time,end_time,day,term,year,buildingID,capacity,hascomp,hasMicro,hasProj));
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(
@@ -85,7 +97,7 @@ public class book_class_search_results extends Fragment {
 
             }
             catch (Exception e){
-
+                String s ="";
             }
 
         }

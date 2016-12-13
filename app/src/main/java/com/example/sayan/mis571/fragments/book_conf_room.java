@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -157,6 +158,9 @@ public class book_conf_room extends Fragment {
                         FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.fragmentholder, results);
                         fragmentTransaction.commit();
+                    }
+                    else{
+                        Toast.makeText(getActivity().getApplicationContext(),"No Result", Toast.LENGTH_LONG).show();
                     }
                 }
             }

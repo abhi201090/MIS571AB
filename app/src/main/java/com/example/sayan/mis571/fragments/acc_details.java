@@ -38,18 +38,19 @@ public class acc_details extends Fragment {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_acc_details, container, false);
 
-        TextView name1 = (TextView) rootView.findViewById(R.id.name1);
-        TextView from1= (TextView) rootView.findViewById(R.id.from1);
-        TextView to1 = (TextView) rootView.findViewById(R.id.to1);
-        TextView status1 = (TextView) rootView.findViewById(R.id.st1);
-        TextView name2 = (TextView) rootView.findViewById(R.id.name2);
-        TextView from2 = (TextView) rootView.findViewById(R.id.from2);
-        TextView to2 = (TextView) rootView.findViewById(R.id.to2);
-        TextView status2= (TextView) rootView.findViewById(R.id.st2);
+        name1 = (TextView) rootView.findViewById(R.id.name1);
+        from1= (TextView) rootView.findViewById(R.id.from1);
+        to1 = (TextView) rootView.findViewById(R.id.to1);
+        status1 = (TextView) rootView.findViewById(R.id.st1);
+        name2 = (TextView) rootView.findViewById(R.id.name2);
+        from2 = (TextView) rootView.findViewById(R.id.from2);
+        to2 = (TextView) rootView.findViewById(R.id.to2);
+        status2= (TextView) rootView.findViewById(R.id.st2);
 
         Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.ShowRoomBooked(UserID));
 //        int recordcount = cursor.getCount();
 //        while (cursor.getPosition() < recordcount){
+        int i = cursor.getCount();
         if(cursor.getCount() > 0) {
             cursor.moveToNext();
             name1.setText(cursor.getString(0));
@@ -69,5 +70,12 @@ public class acc_details extends Fragment {
             //TODO: write reminder if no record.
         }
         return rootView;
+    }
+
+    public void ClearData(){
+        name1.setText("");
+        from1.setText("");
+        to1.setText("");
+        status1.setText("");
     }
 }
