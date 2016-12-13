@@ -199,7 +199,8 @@ public class book_class extends Fragment {
                         fragmentTransaction.commit();
                     }
                     else{
-                        Toast.makeText(getActivity().getApplicationContext(),"No Result", Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(getActivity(),"No Result", Toast.LENGTH_LONG);
+                        toast.show();
                     }
 
                 }

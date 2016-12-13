@@ -160,7 +160,8 @@ public class book_conf_room extends Fragment {
                         fragmentTransaction.commit();
                     }
                     else{
-                        Toast.makeText(getActivity().getApplicationContext(),"No Result", Toast.LENGTH_LONG).show();
+                        Context context = getContext();
+                        Toast.makeText(getActivity(),"No Result", Toast.LENGTH_LONG).show();
                     }
                 }
             }

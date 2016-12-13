@@ -94,7 +94,6 @@ public class book_class_search_results extends Fragment {
                         SimpleCursorAdapter.IGNORE_ITEM_VIEW_TYPE);
                 listView.setAdapter(adapter);
                 Toast.makeText(getActivity().getApplicationContext(),"Class Booked!", Toast.LENGTH_LONG).show();
-
             }
             catch (Exception e){
                 String s ="";

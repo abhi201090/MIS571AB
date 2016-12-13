@@ -10,25 +10,22 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp">
 
-        <com.example.sayan.mis571.util.MyTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
             android:gravity="center"
-            android:text="@string/stFloorNo"
-            android:textColor="@color/roomchecker_color"
-            android:textSize="30sp"
+            android:src="@drawable/floor_num"
             android:layout_marginLeft="40dp"
-            android:layout_gravity="center" />
-
-        <com.example.sayan.mis571.util.MyTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/stConfName"
-            android:textColor="@color/roomchecker_color"
-            android:textSize="30sp"
             android:layout_gravity="center"
-            android:layout_marginLeft="40dp" />
+            android:layout_height="50dp"
+            android:layout_width="180dp" />
+
+        <ImageView
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:src="@drawable/conf_room"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_width="300dp" />
+
 
 
     </LinearLayout>
