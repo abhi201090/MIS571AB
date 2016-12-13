@@ -36,33 +36,33 @@ public class acc_details_prof extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.fragment_acc_details, container, false);
+        View rootView =  inflater.inflate(R.layout.acc_details_prof, container, false);
 
-        TextView cid1 = (TextView) rootView.findViewById(R.id.cid1);
-        TextView cname1= (TextView) rootView.findViewById(R.id.cname1);
-        TextView cterm1 = (TextView) rootView.findViewById(R.id.cterm1);
-        TextView ctime1 = (TextView) rootView.findViewById(R.id.ctime1);
-        TextView cid2 = (TextView) rootView.findViewById(R.id.cid2);
-        TextView cname2 = (TextView) rootView.findViewById(R.id.cname2);
-        TextView cterm2 = (TextView) rootView.findViewById(R.id.cterm2);
-        TextView ctime2= (TextView) rootView.findViewById(R.id.ctime2);
+        cid1 = (TextView) rootView.findViewById(R.id.cid1);
+        cname1= (TextView) rootView.findViewById(R.id.cname1);
+        cterm1 = (TextView) rootView.findViewById(R.id.cterm1);
+        ctime1 = (TextView) rootView.findViewById(R.id.ctime1);
+        cid2 = (TextView) rootView.findViewById(R.id.cid2);
+        cname2 = (TextView) rootView.findViewById(R.id.cname2);
+        cterm2 = (TextView) rootView.findViewById(R.id.cterm2);
+        ctime2= (TextView) rootView.findViewById(R.id.ctime2);
 
-        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.ShowRoomBooked(UserID));
-//        int recordcount = cursor.getCount();
+        Cursor cursor = DBOperator.getInstance().execQuery(SQLCommand.ShowClassBooked(UserID));
+        int recordcount = cursor.getCount();
 //        while (cursor.getPosition() < recordcount){
         if(cursor.getCount() > 0) {
             cursor.moveToNext();
             cid1.setText(cursor.getString(0));
             cname1.setText(cursor.getString(1));
             cterm1.setText(cursor.getString(2) + "    " + cursor.getString(3));
-            ctime1.setText(cursor.getString(4) + "    " + cursor.getString(4) + "     " + cursor.getString(5));
+            ctime1.setText(cursor.getString(4) + "    " + cursor.getString(5) + "-" + cursor.getString(6));
 
             if (cursor.getCount() > 1) {
                 cursor.moveToNext();
                 cid2.setText(cursor.getString(0));
                 cname2.setText(cursor.getString(1));
                 cterm2.setText(cursor.getString(2) + "    " + cursor.getString(3));
-                ctime2.setText(cursor.getString(4) + "    " + cursor.getString(4) + "     " + cursor.getString(5));
+                ctime2.setText(cursor.getString(4) + "    " + cursor.getString(5) + "-" + cursor.getString(6));
             }
         }
 
