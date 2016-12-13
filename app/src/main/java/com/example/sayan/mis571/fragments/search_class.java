@@ -54,6 +54,7 @@ public class search_class extends Fragment {
         studentCourse = (Spinner)rootView.findViewById(R.id.spinnerCourse);
         spinnerProfessor = (Spinner)rootView.findViewById(R.id.spinnerProfessor);
         LoadDefaults(rootView);
+//        setOnItemSelectedListener 可以点击？
         studentCourse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -67,6 +68,7 @@ public class search_class extends Fragment {
                     if(c.getCount()!= 0){
                         values[0] = "Select an Instructor";
                         while(c.moveToNext()){
+//                            .getString(0)), c.getString(1)));  分别是什么？
                             instList.add(new Instructors(Integer.parseInt(c.getString(0)), c.getString(1)));
                             values[i+1] = c.getString(1);
                             i++;
