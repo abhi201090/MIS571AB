@@ -59,10 +59,10 @@ public class acc_details_prof extends Fragment {
 
             if (cursor.getCount() > 1) {
                 cursor.moveToNext();
-                cid1.setText(cursor.getString(0));
-                cname1.setText(cursor.getString(1));
-                cterm1.setText(cursor.getString(2) + "    " + cursor.getString(3));
-                ctime1.setText(cursor.getString(4) + "    " + cursor.getString(4) + "     " + cursor.getString(5));
+                cid2.setText(cursor.getString(0));
+                cname2.setText(cursor.getString(1));
+                cterm2.setText(cursor.getString(2) + "    " + cursor.getString(3));
+                ctime2.setText(cursor.getString(4) + "    " + cursor.getString(4) + "     " + cursor.getString(5));
             }
         }
 
