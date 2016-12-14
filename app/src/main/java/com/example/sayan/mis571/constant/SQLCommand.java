@@ -1,9 +1,6 @@
 package com.example.sayan.mis571.constant;
 
 import android.text.Editable;
-import java.util.Date;
-
-import com.example.sayan.mis571.util.DBOperator;
 
 
 
@@ -103,7 +100,7 @@ public abstract class SQLCommand
     }
 
     public static String GetClassDetails(int courseID,int instID){
-        String query = "SELECT 'Floor: '||T3.Floor ||' Building: '||T4.Name, T1.From_Time||' to '||T1.To_Time FROM ClassBook T1\n" +
+        String query = "SELECT T4.Name, ' '||T3.Name, T1.Day||'  ',T1.From_Time||' to '||T1.To_Time FROM ClassBook T1\n" +
                 "JOIN Instructors T2 ON T1.UserID=T2.UserID\n" +
                 "JOIN Classrooms T3 ON T1.ClassID = T3.ID\n" +
                 "JOIN Buildings T4 ON T3.Building = T4.ID\n" +

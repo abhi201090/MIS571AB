@@ -1,12 +1,8 @@
 package com.example.sayan.mis571.fragments;
 
-import android.content.Context;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,22 +11,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.sayan.mis571.constant.SQLCommand;
 import com.example.sayan.mis571.R;
+import com.example.sayan.mis571.constant.SQLCommand;
+import com.example.sayan.mis571.util.Course;
 import com.example.sayan.mis571.util.DBOperator;
 import com.example.sayan.mis571.util.Instructors;
-import com.example.sayan.mis571.util.Pair;
-import com.example.sayan.mis571.util.Course;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Optional;
 
 public class search_class extends Fragment {
     private static int UserID = 0;
@@ -103,8 +91,8 @@ public class search_class extends Fragment {
                         TextView timeView = (TextView)rootView.findViewById(R.id.txtTime);
                         courseView.setText("Course Name: "+selectedValueCourse);
                         proffView.setText("Professor: "+selectedInstructor);
-                        locView.setText("Location: "+cursor.getString(0));
-                        timeView.setText("Timings: "+cursor.getString(1));
+                        locView.setText("Location: "+cursor.getString(0) + cursor.getString(1));
+                        timeView.setText("Timings: "+cursor.getString(2) + cursor.getString(3));
                         break;
                     }
                 }
